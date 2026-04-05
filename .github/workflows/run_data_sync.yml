@@ -114,7 +114,7 @@ jobs:
       - name: Run sync Joyrun script
         if: env.RUN_TYPE == 'joyrun'
         run: |
-          python run_page/joyrun_sync.py ${{ secrets.JOYRUN_MOBILE }} ${{ secrets.JOYRUN_PASSWORD }}
+          python run_page/joyrun_sync.py ${{ secrets.JOYRUN_MOBILE }} ${{ secrets.JOYRUN_PASSWORD }} --from-uid-sid
 
       - name: Run sync Nike script
         if: env.RUN_TYPE == 'nike'
