@@ -110,6 +110,11 @@ jobs:
           restore-keys: |
             ${{ env.DATA_CACHE_PREFIX }}-${{ github.sha }}-
             ${{ env.DATA_CACHE_PREFIX }}-
+            
+      - name: Run sync Joyrun script
+        if: env.RUN_TYPE == 'joyrun'
+        run: |
+          python run_page/joyrun_sync.py ${{ secrets.JOYRUN_MOBILE }} ${{ secrets.JOYRUN_PASSWORD }}
 
       - name: Run sync Nike script
         if: env.RUN_TYPE == 'nike'
